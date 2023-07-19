@@ -1,3 +1,5 @@
+
+#Select newest AMI-id
 data "aws_ami" "latest_amazon_linux" {
   most_recent = true
 
@@ -22,7 +24,6 @@ data "aws_ami" "amzLinux" {
 */
 
 
-##new:
 ###Create EC2
 resource "aws_instance" "deham6demo"{
     ami                    = data.aws_ami.latest_amazon_linux.id
@@ -33,30 +34,11 @@ resource "aws_instance" "deham6demo"{
     tags = {
         Name = "terraform15_ec2_for_public_subnet1_az1"
     }
-/*    provisioner "remote-exec"{
-        inline = [
-            "sudo yum update -y",
-            "sudo yum install -y nginx",
-            "sudo service nginx start"
-        ]
-        on_failure = continue
-    }*/
-#
+    user_data = file("${path.module}/init.tpl")
+}
 
+#Create user data --> should save in another file 
 /*
-  user_data = <<-EOF
-! /bin/bash
-sudo yum update -y
-sudo yum install -y httpd php mysql
-sudo service httpd start
-sudo chkconfig httpd on
-sudo chmod 777 /var/www
-sudo service mysqld start
-wget https://wordpress.org/latest.tar.gz
-tar -xzf latest.tar.gz -d /var/www/html/
-  EOF
-  */
-
   user_data = <<-EOF
 #!/bin/bash
 
@@ -107,37 +89,4 @@ sudo yum update -y
   EOF
 
 
-/*    provisioner "local-exec"{
-        command = "echo Instance Type=${self.instance_type},Instance ID=${self.id},Public DNS=${self.public_dns},AMI ID=${self.ami} >> allinstancedetails"
-    }
-connection {
-    type = "ssh"
-    host = self.public_ip
-    user = "ec2-user"
-    private_key = file("${path.module}/terraform.pem")
-}*/
-
-
-/*
-    provisioner "remote-exec"{
-        inline = [
-            "sudo yum update -y",
-            "sudo yum install -y nginx",
-            "sudo service nginx start"
-        ]
-        on_failure = continue
-    }
-    provisioner "local-exec"{
-        command = "echo Instance Type=${self.instance_type},Instance ID=${self.id},Public DNS=${self.public_dns},AMI ID=${self.ami} >> allinstancedetails"
-    }
-    connection {
-        type = "ssh"
-        host = aws_instance.provisioner-remoteVM.public_ip
-        user = "ec2-user"
-        private_key=file("${path.module}/terraform.pem")
-    }*/
-}
-
-#provisioner "local-exec"{
-#    command = "echo Instance Type=${self.instance_type},Instance ID=${self.id},Public DNS=${self.public_dns},AMI ID=${self.ami} >> allinstancedetails"
-#  }
+*/
