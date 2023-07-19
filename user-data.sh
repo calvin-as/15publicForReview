@@ -2,7 +2,6 @@
 ### Setup Wordpress ###
 # This script installs MariaDB, PHP, configures a WordPress database, downloads and configures WordPress and updates PHP version
 
-
 # Install MariaDB, PHP and necessary tools
 sudo yum install -y httpd mariadb-server php php-mysqlnd unzip
 
@@ -31,7 +30,6 @@ sudo cp wp-config-sample.php wp-config.php
 sudo sed -i 's/database_name_here/wordpress/' wp-config.php 
 sudo sed -i 's/username_here/wpuser/' wp-config.php 
 sudo sed -i 's/password_here/wppassword/' wp-config.php
-
 
 # Enable PHP 7.4 and update the system | for me necassary; for you maybe not
 sudo amazon-linux-extras enable php7.4

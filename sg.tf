@@ -31,7 +31,6 @@ resource "aws_security_group_rule" "devVPC_egress_access" {
     type = "egress"
 }
 
-
 */
 #old rules ssh
 resource "aws_security_group" "devVPC_sg_allow_ssh_http"{
@@ -49,6 +48,9 @@ resource "aws_security_group_rule" "devVPC_ssh_ingress_access"{
     to_port = 22
     type = "ingress"
     cidr_blocks = [var.cidr_blocks]
+    tags = {
+       Name = "Ingress_22"
+  }
 }
 
 # Ingress Security Port 80 (Inbound)
@@ -79,5 +81,3 @@ resource "aws_security_group_rule" "devVPC_egress_access" {
     security_group_id = aws_security_group.devVPC_sg_allow_ssh_http.id
     type = "egress"
 }
-
-

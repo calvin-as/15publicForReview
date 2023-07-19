@@ -7,7 +7,6 @@ variable "cidr_blocks"{
     default = "0.0.0.0/0"
 }
 
-
 variable "public_cidr1"{
     default = "10.0.1.0/24"
 }
