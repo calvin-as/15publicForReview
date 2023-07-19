@@ -2,7 +2,9 @@
 
 # `deham6_vpc` Terraform Module
 
-Status: Friday the 14.07.2023 - Challenge: Create a Wordpress on an EC2 instance in a VPC with terraform
+Status: Friday the 14.07.2023 
+Challenge: Create a Wordpress on an EC2 instance in a VPC with terraform
+Expected output: If you run the program in the terminal with terraform, you will get the public_ip in the terminal. You can open this IP in the browser to open your WordPress site. Then you can create your blog.
 
 The `deham6_vpc` Terraform module provisions an AWS VPC (Virtual Private Cloud) infrastructure, including various subnets, an EC2 instance, and necessary security groups.
 

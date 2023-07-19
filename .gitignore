@@ -5,6 +5,10 @@
 *.tfstate
 *.tfstate.*
 .*
+.terraform.lock.hcl
+.terraform
+terraform.tfstate
+
 
 # Crash log files
 crash.log
@@ -24,3 +28,6 @@ terraform.rc
 *.tfstate
 *.tfstate.*
 *.terraform
+
+# other files: 
+main.out

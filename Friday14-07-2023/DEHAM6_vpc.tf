@@ -56,7 +56,6 @@ resource "aws_subnet" "devVPC_private_subnet2"{
 
 # To access EC2 instance inside a Virtual Private Cloud (VPC) we need an Internet Gateway
 # and a routing table Connecting the subnet to the Internet Gateway
-# Creating Internet Gateway
 # Provides a resource to create a VPC Internet Gateway
 
 ###Create Internet Gateway
