@@ -8,7 +8,7 @@ resource "aws_vpc" "devVPC"{
     enable_dns_hostnames=true
     enable_dns_support = true
     tags = {
-        Name = "dev_terraform_vpc"
+        Name = "dev_terraform18_vpc"
     }
 }
 

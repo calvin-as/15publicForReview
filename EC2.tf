@@ -32,7 +32,7 @@ resource "aws_instance" "deham6demo"{
     vpc_security_group_ids = [aws_security_group.devVPC_sg_allow_ssh_http.id]
     subnet_id              = aws_subnet.devVPC_public_subnet1.id   
     tags = {
-        Name = "terraform15_ec2_for_public_subnet1_az1"
+        Name = "terraform18_ec2_for_public_subnet1_az1"
     }
     user_data              = "${file("user-data.sh")}"
     }
