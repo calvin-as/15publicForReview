@@ -32,7 +32,7 @@ sudo sed -i 's/username_here/wpuser/' wp-config.php
 sudo sed -i 's/password_here/wppassword/' wp-config.php
 
 # Enable PHP 7.4 and update the system | for me necassary; for you maybe not
-sudo amazon-linux-extras enable php7.4
+sudo amazon-linux-extras enable php8.0
 sudo yum update -y
 
 # Restart Apache service to apply changes

@@ -47,7 +47,6 @@ resource "aws_security_group" "devVPC_sg_allow_ssh_http"{
     }
 }
 
-
 # Ingress Security Port 22 (Inbound) - Provides a security group rule resource (https://registry.terraform.io.providers/hashicorp/aws/latest/docs/resources/security_group_rule)
 # Typically used for SSH connections
 resource "aws_security_group_rule" "devVPC_ssh_ingress_access"{
