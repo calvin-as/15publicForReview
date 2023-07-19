@@ -34,8 +34,8 @@ resource "aws_instance" "deham6demo"{
     tags = {
         Name = "terraform15_ec2_for_public_subnet1_az1"
     }
-    user_data = file("${path.module}/init.tpl")
-}
+    user_data              = "${file("user-data.sh")}"
+    }
 
 #Create user data --> should save in another file 
 /*
