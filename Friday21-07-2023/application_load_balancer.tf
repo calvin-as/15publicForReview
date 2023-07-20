@@ -32,16 +32,3 @@ resource "aws_lb_listener" "devVPC_listener" {
     target_group_arn = aws_lb_target_group.devVPC_target_group.arn
   }
 }
-
-### Create a Launch Configuration
-resource "aws_launch_configuration" "devVPC_launch_configuration" {
-  name          = "devVPC-lc"
-  image_id      = data.aws_ami.latest_amazon_linux.id 
-  instance_type = "t2.micro"
-  security_groups = [aws_security_group.devVPC_sg_allow_ssh_http.id] 
-    user_data              = "${file("user-data.sh")}"
-    
-  lifecycle {
-    create_before_destroy = true
-  }
-}
