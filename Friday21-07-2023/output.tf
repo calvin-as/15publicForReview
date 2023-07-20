@@ -15,6 +15,7 @@ output "security_group"{
     value = aws_security_group.devVPC_sg_allow_ssh_http # devVPC_sg_allow_http.id
 }
 
+/* Friday Challange 14.7.2023
 #IP-Adress for the Webserver
 output "public_ip_of_first_EC2" {
   value = aws_instance.deham6demo.public_ip
@@ -27,6 +28,41 @@ output "name_of_first_EC2" {
 output "ip_and_name_of_first_EC2" {
   value = "${aws_instance.deham6demo.public_ip} ${aws_instance.deham6demo.tags.Name}"
 }
+*/
+
+
+# Load Balancer details
+output "application_load_balancer_arn" {
+  value = aws_lb.devVPC_application_load_balancer.arn
+}
+output "application_load_balancer_id" {
+  value = aws_lb.devVPC_application_load_balancer.id
+}
+
+# Auto Scaling Group details
+output "auto_scaling_group_id" {
+  value = aws_autoscaling_group.devVPC_auto_scaling_group.id
+}
+output "auto_scaling_group_arn" {
+  value = aws_autoscaling_group.devVPC_auto_scaling_group.arn
+}
+
+# Launch Configuration details
+output "launch_configuration_id" {
+  value = aws_launch_configuration.devVPC_launch_configuration.id
+}
+output "launch_configuration_name" {
+  value = aws_launch_configuration.devVPC_launch_configuration.name
+}
+
+# Target Group details
+output "target_group_arn" {
+  value = aws_lb_target_group.devVPC_target_group.arn
+}
+output "target_group_id" {
+  value = aws_lb_target_group.devVPC_target_group.id
+}
+
 
 
 /*
