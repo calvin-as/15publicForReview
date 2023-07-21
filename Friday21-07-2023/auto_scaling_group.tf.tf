@@ -1,28 +1,36 @@
-
-#Select newest AMI-id
-data "aws_ami" "latest_amazon_linux" {
-  most_recent = true
-
-  filter {
-    name   = "name"
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
+resource "aws_autoscaling_group" "deham6demo_asg" {
+ # desired_capacity     = 2
+  min_size             = 1
+  max_size             = 4
+  health_check_type    = "ELB"
+  health_check_grace_period = 300
+  launch_template {
+    id = aws_launch_template.deham6demo.id
   }
 
-  filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+  vpc_zone_identifier  = [aws_subnet.devVPC_private_subnet2.id, aws_subnet.devVPC_private_subnet1.id]
+
+  target_group_arns = [aws_lb_target_group.devVPC_target_group.arn]
+
+  tag {
+    key                 = "Name"
+    value               = "asg"
+    propagate_at_launch = true
   }
 
-  owners = ["amazon"] # Amazon
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
+/* old
 ### Create a Launch Configuration
 resource "aws_launch_configuration" "devVPC_launch_configuration" {
   name          = "devVPC-lc"
   image_id      = data.aws_ami.latest_amazon_linux.id 
   instance_type = "t2.micro"
   security_groups = [aws_security_group.devVPC_sg_allow_ssh_http.id] 
-    user_data              = "${file("user-data.sh")}"
+    user_data              = file("user-data.sh")
     
   lifecycle {
     create_before_destroy = true
@@ -35,8 +43,7 @@ resource "aws_autoscaling_group" "devVPC_auto_scaling_group" {
   launch_configuration = aws_launch_configuration.devVPC_launch_configuration.id
   max_size           = 4
   min_size           = 1
-  vpc_zone_identifier = [aws_subnet.devVPC_public_subnet1.id] #subnet
-
+  vpc_zone_identifier = [aws_subnet.devVPC_public_subnet1.id, aws_subnet.devVPC_public_subnet1.id] 
   target_group_arns = [aws_lb_target_group.devVPC_target_group.arn]
 
   tag {
@@ -49,20 +56,6 @@ resource "aws_autoscaling_group" "devVPC_auto_scaling_group" {
     create_before_destroy = true
   }
 }
+*/
 
-### read Elastic Load Balancer Listeners Page 16 - register EC2
-
-/* friday challange 14.7
-###Create EC2
-resource "aws_instance" "deham6demo"{
-    ami                    = data.aws_ami.latest_amazon_linux.id
-    instance_type          = "t2.micro"
-    key_name               = "vockey"
-    vpc_security_group_ids = [aws_security_group.devVPC_sg_allow_ssh_http.id]
-    subnet_id              = aws_subnet.devVPC_public_subnet1.id   
-    tags = {
-        Name = "terraform18_ec2_for_public_subnet1_az1"
-    }
-    user_data              = file("user-data.sh")
-    }
-    */
+### read Elastic Load Balancer Listeners Page 16 - register E

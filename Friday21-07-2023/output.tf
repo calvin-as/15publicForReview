@@ -28,7 +28,7 @@ output "name_of_first_EC2" {
 output "ip_and_name_of_first_EC2" {
   value = "${aws_instance.deham6demo.public_ip} ${aws_instance.deham6demo.tags.Name}"
 }
-*/
+
 
 
 # Load Balancer details
@@ -47,6 +47,11 @@ output "auto_scaling_group_arn" {
   value = aws_autoscaling_group.devVPC_auto_scaling_group.arn
 }
 
+*/
+
+
+
+/*
 # Launch Configuration details
 output "launch_configuration_id" {
   value = aws_launch_configuration.devVPC_launch_configuration.id
@@ -62,7 +67,7 @@ output "target_group_arn" {
 output "target_group_id" {
   value = aws_lb_target_group.devVPC_target_group.id
 }
-
+*/
 
 
 /*

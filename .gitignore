@@ -31,3 +31,8 @@ terraform.rc
 
 # other files: 
 main.out
+plan.out
+plan.json
+plan.png
+Documentation_with Infrastructure_and_Architecture_diagram.docx
+FinalArchitecture.png

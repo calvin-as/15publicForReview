@@ -1,4 +1,5 @@
 #! /bin/bash
+
 ### Setup Wordpress ###
 # This script installs MariaDB, PHP, configures a WordPress database, downloads and configures WordPress and updates PHP version
 
