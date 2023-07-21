@@ -30,9 +30,11 @@ terraform.rc
 *.terraform
 
 # other files: 
+labsuser.pem
 main.out
 plan.out
 plan.json
 plan.png
 Documentation_with Infrastructure_and_Architecture_diagram.docx
 FinalArchitecture.png
+Trigger.py
