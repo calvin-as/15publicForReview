@@ -91,3 +91,24 @@ resource "aws_security_group_rule" "devVPC_egress_access" {
     type = "egress"
     cidr_blocks = [var.cidr_blocks]
 }
+
+
+
+## SG for Load Balancer:
+resource "aws_security_group" "devVPC_alb_security_group" {
+  name_prefix = "devVPC-alb-sg"
+  description = "Security Group for Application Load Balancer"
+
+  vpc_id = aws_vpc.devVPC.id
+
+  # Inbound rule to allow incoming HTTP traffic (port 80)
+  ingress {
+    description = "HTTP inbound traffic"
+    from_port   = 80
+    to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+
+

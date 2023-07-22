@@ -5,7 +5,7 @@ resource "aws_lb" "devVPC_application_load_balancer" {
   load_balancer_type = "application"
 
   #optional
-  security_groups    = [aws_security_group.devVPC_sg_allow_ssh_http.id]
+  security_groups    = [aws_security_group.devVPC_alb_security_group.id]
   subnets            = [aws_subnet.devVPC_private_subnet1.id, aws_subnet.devVPC_private_subnet2.id] 
 
   enable_http2 = true
