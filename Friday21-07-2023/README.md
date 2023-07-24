@@ -16,6 +16,9 @@ The `deham6_vpc` Terraform module provisions an AWS VPC (Virtual Private Cloud) 
 - `user-data.sh`: User-Data script executed on the EC2 instance, installs and configures WordPress.
 - `application_load_balancer.tf`: Application Load Balancer.
 - `auto_scaling_group.tf`: AWS Auto Scaling Group with the latest Amazon Linux AMI
+- `outpu.tf`: Outputs that retrieve the respective resource IDs.
+- `Documentaion`: Documention with Infrastructure/Architecture diagram.
+- `trigger`: Script to trigger Auto Scaling Group.
 
 ## Usage
 Ensure you have [Terraform](https://www.terraform.io/downloads.html) properly installed and configured, and valid AWS credentials available via AWS CLI or environment variables. Then, execute the module from the directory containing the Terraform files:
@@ -43,6 +46,9 @@ This script contains the Terraform resources for creating an auto-scaling group 
 
 ## Application Load Balancer
 This script contains the Terraform resources for creating an application load balancer in AWS that distributes incoming traffic across multiple destinations, such as EC2 instances, Lambda functions, and IP addresses.
+
+## trigger
+There are 2 scripts. Use the bash script in the EC2 Instance. Or use the py Script and paste th ip of the EC2 Instance to increase the CPU utilization to trigger Auto Scale Groups.
 
 ## Notes
 Ensure no conflicts between the IP ranges in the CIDR blocks and your other networks. Clean up resources when no longer required to avoid unnecessary costs:
