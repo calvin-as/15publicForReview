@@ -1,0 +1,10 @@
+Todo:
+- create S3 for logs
+- opt. AMI
+- Add Email notification
+	- Task 1: Add cloudwatch metrics with CPU utilization & threshold configured. 
+	- Task 2: Add a cloudwatch alarm based on above configuration
+	- Task 3: Add SNS topic  
+	- Task 4: Create subscription to the SNS topic with protocol - Email 
+	- Task 5: Confirm the Email-subscription
+- pot. extra file for passwords?
