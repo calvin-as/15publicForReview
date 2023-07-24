@@ -29,12 +29,17 @@ terraform.rc
 *.tfstate.*
 *.terraform
 
-# other files: 
-labsuser.pem
+#Documentation
 main.out
 plan.out
 plan.json
 plan.png
 Documentation_with Infrastructure_and_Architecture_diagram.docx
 FinalArchitecture.png
-Trigger.py
+
+#trigger to increase CPU utilization
+trigger.py
+trigger.sh
+
+# other files: 
+labsuser.pem
