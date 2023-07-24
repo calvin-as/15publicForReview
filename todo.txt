@@ -8,3 +8,9 @@ Todo:
 	- Task 4: Create subscription to the SNS topic with protocol - Email 
 	- Task 5: Confirm the Email-subscription
 - pot. extra file for passwords?
+- Load Testing
+	- Task 0: Verify the ALB url (DNS) via browser
+	- Task 1: Run the stress tool to initiate the load on the EC2 server(s)
+	- Task 2: Verify the Cloudwatch Alarm once it’s triggered as a result of breaching the threshold limit configured 
+	- Task 3: Verify the Alarm status-In Alarm’ via email notification
+	- Task 4: Verify whether it launches additional web servers as a part of Auto scaling group to handle the load. 
