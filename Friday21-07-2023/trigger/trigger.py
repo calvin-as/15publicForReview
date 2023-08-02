@@ -5,13 +5,13 @@ import requests
 from multiprocessing import Pool
 
 # The URLs of your load balancers
-urls = ["http://xx.xx.xx.xx"] #,.. 
+urls = ["http://54.187.28.9"] #,.. 
 
 # The number of parallel requests you want to send
-num_requests = 6
+num_requests = 20
 
 # The time between requests (in seconds)
-delay = 0.1
+delay = 0.01
 
 def send_request(i):
     url = urls[i % len(urls)]

@@ -57,7 +57,6 @@ resource "aws_subnet" "devVPC_private_subnet2"{
 # To access EC2 instance inside a Virtual Private Cloud (VPC) we need an Internet Gateway
 # and a routing table Connecting the subnet to the Internet Gateway
 # Provides a resource to create a VPC Internet Gateway
-
 ###Create Internet Gateway
 resource "aws_internet_gateway" "devVPC_IGW"{
     vpc_id = aws_vpc.devVPC.id
@@ -65,8 +64,8 @@ resource "aws_internet_gateway" "devVPC_IGW"{
         Name = "dev_terraform_vpc_igw"
     }
 }
-# Provides a resource to create a VPC routing table
 
+# Provides a resource to create a VPC routing table
 ###Create Route Tables
 resource "aws_route_table" "devVPC_public_route"{
     vpc_id = aws_vpc.devVPC.id
@@ -78,7 +77,6 @@ resource "aws_route_table" "devVPC_public_route"{
         Name = "dev_terraform_vpc_public_route"
     }
 }
-
 
 # Provides a resource to create an association between a Public Route Table and a Public Subnet
 ###Create association between a Public Route Table and a Public Subnet:

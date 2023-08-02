@@ -49,6 +49,43 @@ output "aws_launch_template" {
   value = aws_launch_template.deham6demo.id
 }
 
+/*
+#S3 webcontent
+output "s3_bucket_name" {
+  value = aws_s3_bucket.dev.bucket
+}
+
+output "s3_bucket_arn" {
+  value = aws_s3_bucket.dev.arn
+}
+
+output "s3_bucket_region" {
+  value = aws_s3_bucket.dev.region
+}
+*/
+
+/*
+# Output the URL of the uploaded file
+output "s3_file_url" {
+  value = "https://" + aws_s3_object.todo_list.bucket + ".s3." + aws_s3_bucket.dev.region +".amazonaws.com/" + aws_s3_object.todo_list.key
+}
+*/
+
+/*
+# Output the URL of the uploaded file
+output "s3_file_url" {
+  value = aws_s3_bucket_object.todo_list.bucket + "/" + aws_s3_bucket_object.todo_list.key
+}
+
+# Output the URL of the uploaded file
+output "s3_file_url" {
+  value = aws_s3_bucket_object.todo_list.bucket + "/" + aws_s3_bucket_object.todo_list.key
+}
+"https://" + aws_s3_object.todo_list.bucket + ".s3." + aws_s3_bucket.dev.region +".amazonaws.com/" + aws_s3_object.todo_list.key
+
+
+*/
+
 
 
 /*
@@ -59,6 +96,7 @@ output "name_of_first_EC2" {
   value = aws_instance.deham6demo.tags.Name
 }
 
+#be creative 
 output "ip_and_name_of_first_EC2" {
   value = "${aws_instance.deham6demo.public_ip} ${aws_instance.deham6demo.tags.Name}"
 }

@@ -26,4 +26,4 @@ resource "aws_instance" "deham6demo"{
         Name = "terraform18_ec2_for_public_subnet1_az1"
     }
     user_data              = file("user-data.sh")
-    }
+}
