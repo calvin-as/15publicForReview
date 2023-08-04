@@ -15,6 +15,7 @@ output "security_group"{
     value = aws_security_group.devVPC_sg_allow_ssh_http # devVPC_sg_allow_http.id
 }
 
+/*
 # Friday Challange 14.7.2023
 #not tested
 output "public_ip_of_first_EC2" {
@@ -48,6 +49,9 @@ output "aws_lb_listener" {
 output "aws_launch_template" {
   value = aws_launch_template.deham6demo.id
 }
+
+
+*/ #friday
 
 /*
 #S3 webcontent

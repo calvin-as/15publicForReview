@@ -1,5 +1,5 @@
 resource "aws_autoscaling_group" "deham6demo_asg" {
- # desired_capacity     = 2
+  #desired_capacity     = 2  ##
   min_size             = 1
   max_size             = 6
   health_check_type    = "ELB"
@@ -10,7 +10,7 @@ resource "aws_autoscaling_group" "deham6demo_asg" {
 
   vpc_zone_identifier  = [aws_subnet.devVPC_public_subnet2.id, aws_subnet.devVPC_public_subnet1.id]
 
-  target_group_arns = [aws_lb_target_group.devVPC_target_group.arn]
+  target_group_arns = [aws_lb_target_group.target-group.arn]
 
   tag {
     key                 = "Name"
@@ -37,6 +37,9 @@ resource "aws_autoscaling_policy" "scale_up" {
     target_value = 25.0
   }
 }
+
+
+
 
 
 /*

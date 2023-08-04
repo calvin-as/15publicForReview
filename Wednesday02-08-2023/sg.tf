@@ -112,3 +112,28 @@ resource "aws_security_group" "devVPC_alb_security_group" {
 }
 
 
+## SG for RDS:
+#Security group to allow port 3306
+resource "aws_security_group" "allow_mysql" {
+  vpc_id = aws_vpc.devVPC.id
+
+  # Inbound rule to allow incoming HTTP traffic (port 80)
+  ingress {
+    description = "HTTP inbound traffic"
+    from_port   = 3306
+    to_port     = 3306
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+  
+  /*
+    # Egress Security (Outbound) - Allow all outbound traffic
+  egress {
+    description = "egress all traffic"
+    from_port   = 0
+    to_port     = 0
+    protocol    = "-1"
+    cidr_blocks = [var.cidr_blocks]
+  }
+  */
+}
